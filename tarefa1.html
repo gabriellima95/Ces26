@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> CES26 </title>
+	<h1> Exercicio 1 - DOM </h1>
+</head>
+<body>
+	<h2>Criar e remover elementos.</h2>
+	<button type="button" onclick="adiciona()"> Adicionar </button>
+	<button type="button" onclick="remove()"> Remover </button>
+	<h3>Alterar qual elemento: </h3>
+	<input type="number" id="n" name="select" /><br />
+	<input type="submit" value="Mudar" onclick="alterar();"/>
+	<hr />
+	<script>
+		var num=0;
+		function adiciona(){
+			var element = document.createElement("p");
+			num++;
+			element.id = num;
+			var text = document.createTextNode((num)+" Elemento criado ");
+			element.appendChild(text);
+			document.body.appendChild(element);
+		}
+		function remove(){
+			var remove = document.getElementById(num);
+			document.body.removeChild(remove);
+			num--;
+		}
+		function alterar(){
+			var change = document.getElementById("n").value;
+			var list = document.getElementsByTagName("p");
+			list[change-1].innerHTML="Elemento mudado: "+(change);
+		}
+	</script>
+</body>
+</html>

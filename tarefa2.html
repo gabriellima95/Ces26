@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="utf-8">
+		<title>Ces26</title>
+		<h1>Tarefa HTML5 </h1>
+		<h2> Escolha de qual estado de origem da banda: </h2>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+<body>
+	<div class="btn-group btn-group-justified">
+			<button type="button" onclick="myMap(34.746483, -92.289597,'https://www.youtube.com/embed/JM9KN2sDL7w')">Arkansas</a>
+			<button type="button" onclick="myMap(47.751076, -120.740135,
+			'https://www.youtube.com/embed/3NdQhi1vaig')">Washigton</a>
+			<button type="button" onclick="myMap(36.778259, -119.417931,
+			'https://www.youtube.com/embed/XgjApX-G6kE')">California</a>
+			<button type="button" onclick="myMap(51.5085300, -0.1257400,
+			'https://www.youtube.com/embed/naajobn7aOE')">Londres</a>
+			<button type="button" onclick="myMap(40.730610, -73.935242,
+			'https://www.youtube.com/embed/pQpELYO6Azg')">New York</a>
+		</div>
+		<hr/>
+		<hr/>
+		<div class="row" align="center">
+			<div id="video" style="width:420px;height:315px;"></div>
+			<div id="map" style="width:800px;height:400px;"></div>
+		</div>
+		<hr/>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ8B1zsaXFOjvJ52bB1n8r6PLkDJgHRrA&callback=myMap"></script>
+<script>
+	var video = document.createElement("iframe");
+	video.width="420";
+	video.height="315";
+	function myMap(latitude, longitude, link) {
+	var myCenter = new google.maps.LatLng(latitude,longitude);
+	var mapCanvas = document.getElementById("map");
+	var mapOptions = {center: myCenter, zoom: 11};
+	var map = new google.maps.Map(mapCanvas, mapOptions);
+	var marker = new google.maps.Marker({position:myCenter});
+	marker.setMap(map);
+	video.src=link;
+	var frame = document.getElementById("video");
+	frame.appendChild(video);
+	}
+</script>
+</body>
+</html>	
